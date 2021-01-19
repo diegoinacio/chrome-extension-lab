@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Random color!</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <title>Random Color</title>
+
+    <!-- ! Style -->
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
     <div id="show-color"></div>
-    <button id="copy-hex">Copy color in HEX</button>
-    <button id="copy-rgb">Copy color in RGB</button>
-    <div id="result">> </div>
+    <button id="reload" class="fa solid fa-retweet" title="Reload!"></button>
+    <button
+      id="copy-hex"
+      class="fa regular fa-clone"
+      title="Copy color to the clipboard in HEX"
+    >
+      &nbsp;&nbsp; HEX
+    </button>
+    <button
+      id="copy-rgb"
+      class="fa regular fa-clone"
+      title="Copy color to the clipboard in RGB"
+    >
+      &nbsp;&nbsp; RGB
+    </button>
+    <div id="result"></div>
 
     <script type="text/javascript" src="script.js"></script>
-</body>
+  </body>
 </html>

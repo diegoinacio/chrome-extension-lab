@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Random color!",
-    "version": "1.0",
-    "description": "Generates a normalized colors randomly.",
+    "name": "Random Color",
+    "version": "1.1",
+    "description": "Generates normalized colors randomly.",
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",

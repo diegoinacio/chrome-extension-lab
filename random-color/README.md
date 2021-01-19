@@ -1,3 +1,5 @@
-# Random colors
+# Random Color
 
-Generates a normalized colors randomly and copy it to the clipboard.
+Generates normalized colors randomly and copy it to the clipboard.
+
+![preview](preview.jpg)
