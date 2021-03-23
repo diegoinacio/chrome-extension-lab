@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Latex Generator</title>
+
+    <!-- ! Style -->
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="codecogs-brand">
+        <a href="https://www.codecogs.com" target="_blank">
+          <img
+            src="https://www.codecogs.com/images/poweredbycodecogs.png"
+            border="0"
+            title="CodeCogs"
+            alt="CodeCogs"
+          />
+        </a>
+      </div>
+
+      <div class="input">
+        <!-- * Input text -->
+        <textarea id="latexInput" rows="4" cols="64"></textarea>
+        <!-- * Size options -->
+        <label for="latexSize">Size: </label>
+        <select name="latexSize" id="latexSize"></select>
+        <!-- * Color options -->
+        <label for="latexColor">Color: </label>
+        <select name="latexColor" id="latexColor"></select>
+      </div>
+
+      <div class="output">
+        <img
+          id="latexOutput"
+          src="http://codecogs.unisa.ac.za/gif.latex?"
+          align="middle"
+        />
+      </div>
+
+      <script type="text/javascript" src="script.js"></script>
+    </div>
+  </body>
+</html>
