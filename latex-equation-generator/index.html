@@ -12,14 +12,13 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="codecogs-brand">
-        <a href="https://www.codecogs.com" target="_blank">
-          <img
-            src="https://www.codecogs.com/images/poweredbycodecogs.png"
-            border="0"
-            title="CodeCogs"
-            alt="CodeCogs"
-          />
+      <div class="api-brand">
+        Powered by
+        <a
+          href="https://developers.google.com/chart/infographics/docs/formulas?hl=en"
+          target="_blank"
+        >
+          Google Charts API
         </a>
       </div>
 
@@ -31,13 +30,16 @@
         <select name="latexSize" id="latexSize"></select>
         <!-- * Color options -->
         <label for="latexColor">Color: </label>
-        <select name="latexColor" id="latexColor"></select>
+        <input type="color" name="latexColor" id="latexColor" value="#000000" />
+        <!-- * Color options -->
+        <label for="latexBG">Background Color: </label>
+        <input type="color" name="latexBG" id="latexBG" value="#FFFFFF" />
       </div>
 
       <div class="output">
         <img
           id="latexOutput"
-          src="http://codecogs.unisa.ac.za/gif.latex?"
+          src="https://chart.googleapis.com/chart?"
           align="middle"
         />
       </div>

@@ -1,4 +1,4 @@
-const codecogs_url = "https://codecogs.com/gif.latex?";
+const google_charts_url = "https://chart.googleapis.com/chart?";
 
 // ! Prototypes
 String.prototype.capitalize = function () {
@@ -16,32 +16,15 @@ sizeList.forEach((element) => {
   latexSize.append(option);
 });
 
-// * LaTeX Color
+// * LaTeX Color and BG
 let latexColor = document.getElementById("latexColor");
-const colorList = [
-  "black",
-  "gray",
-  "red",
-  "green",
-  "blue",
-  "cyan",
-  "magenta",
-  "orange",
-  "purple",
-];
-colorList.forEach((element) => {
-  let option = document.createElement("option");
-  option.value = element;
-  option.innerText = element.capitalize();
-  option.style = `color: ${element};`;
-  latexColor.append(option);
-});
+let latexBG = document.getElementById("latexBG");
 
 // ! Main program
 let latexInput = document.getElementById("latexInput");
 let latexOutput = document.getElementById("latexOutput");
 
-let textValue, sizeValue, colorValue;
+let textValue, sizeValue, colorValue, bgValue;
 
 document.addEventListener("DOMContentLoaded", function () {
   loadLastInputValue();
@@ -62,7 +45,12 @@ latexSize.oninput = function () {
 
 latexColor.oninput = function () {
   colorValue = latexColor.value;
-  latexColor.style = `color: ${colorValue};`;
+  storeLastInputValue();
+  setOutputImage();
+};
+
+latexBG.oninput = function () {
+  bgValue = latexBG.value;
   storeLastInputValue();
   setOutputImage();
 };
@@ -71,15 +59,18 @@ latexColor.oninput = function () {
 function loadLastInputValue() {
   // ? Load last input value
   chrome.storage.local.get(
-    ["ccLastTextValue", "ccLastSizeValue", "ccLastColorValue"],
+    ["ccLastTextValue", "ccLastSizeValue", "ccLastColorValue", "ccLastBGValue"],
     function (value) {
       textValue = latexInput.value =
-        value.ccLastTextValue || String.raw`\frac{1}{N} \sum_i^N x_i`;
+        value.ccLastTextValue ||
+        String.raw`\displaystyle \frac{1}{N} \sum_i^N x_i`;
       sizeValue = latexSize.value = value.ccLastSizeValue || "normal";
-      colorValue = latexColor.value = value.ccLastColorValue || "black";
+      colorValue = latexColor.value = value.ccLastColorValue || "#000000";
+      bgValue = latexBG.value = value.ccLastBGValue || "#FFFFFF";
       latexInput.dispatchEvent(new Event("input"));
       latexSize.dispatchEvent(new Event("input"));
       latexColor.dispatchEvent(new Event("input"));
+      latexBG.dispatchEvent(new Event("input"));
     }
   );
 }
@@ -91,6 +82,7 @@ function storeLastInputValue() {
       ccLastTextValue: textValue,
       ccLastSizeValue: sizeValue,
       ccLastColorValue: colorValue,
+      ccLastBGValue: bgValue,
     },
     function () {}
   );
@@ -98,9 +90,9 @@ function storeLastInputValue() {
 
 function setOutputImage() {
   // ? Set output image
-  console.log("ok1", sizeValue, colorValue);
-  let output = `\\${sizeValue} `;
-  output += `\\color{${colorValue.capitalize()}} `;
-  output += textValue;
-  latexOutput.src = `${codecogs_url}${output}`;
+  let output = "cht=tx";
+  output += `&chf=bg,s,${bgValue.replace("#", "")}`;
+  output += `&chco=${colorValue.replace("#", "")}`;
+  output += `&chl=\\${sizeValue} ${textValue}`;
+  latexOutput.src = `${google_charts_url}${output}`;
 }

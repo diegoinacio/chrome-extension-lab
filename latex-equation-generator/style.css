@@ -16,15 +16,10 @@ body {
   padding: 10px;
 }
 
-.codecogs-brand {
+.api-brand {
   text-align: center;
   display: block;
   margin: 10px;
-}
-
-.codecogs-brand img {
-  width: 20%;
-  height: auto;
 }
 
 .input select,
