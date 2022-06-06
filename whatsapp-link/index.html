@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatsApp Link</title>
+
+    <!-- ! Style -->
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h3>WhatsApp Number:</h3>
+        <p class="caption">
+          Use the full phone number in international format. Make sure you
+          include the country code followed by the area code before the phone
+          number.
+        </p>
+        <input
+          type="text"
+          id="phone-number"
+          name="phone-number"
+          placeholder="eg. 55987654321"
+        />
+      </div>
+      <div>
+        <h3>Message:</h3>
+        <p class="caption">Include your custom message.</p>
+        <textarea
+          name="message"
+          id="message"
+          rows="5"
+          placeholder="eg. Hello, I have a question about your service."
+        ></textarea>
+      </div>
+      <div class="buttons">
+        <button
+          id="copy-clipboard"
+          class="fa regular fa-clone"
+          title="Copy to clipboard"
+        >
+          Copy to clipboard
+        </button>
+        <button
+          id="open-whatsapp"
+          class="fa regular fa-whatsapp"
+          title="Open on WhatsApp"
+        >
+          Open on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
